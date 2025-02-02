@@ -1,0 +1,85 @@
+
+<mat-toolbar class="d-flex">
+  <button mat-icon-button class="example-icon" (click)="drawer.toggle()"aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <button mat-icon-button class="example-icon" width="50" height="50" aria-label="Example icon-button with menu icon">
+    <mat-icon>search</mat-icon>
+  </button>
+
+  <div class="wrapper">
+    <span class="top-left">Dream Spins</span>
+    <span class="bottom-left">Casino</span>
+  </div>
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>card_giftcard</mat-icon>
+    </button>
+    <button class="btn" aria-label="Example icon-button with heart icon">
+      SIGN UP
+    </button>
+    <button class="btn" aria-label="Example icon-button with share icon">
+     LOGIN
+    </button>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+
+  <mat-drawer #drawer [mode]="mode.value">
+    <p>I'm a drawer</p>
+    <ul>
+      <li>
+        <mat-label>Sidenav mode</mat-label>
+      </li>
+      <li>
+        <mat-form-field>
+          <mat-select #mode value="side">
+            <mat-option value="side">Side</mat-option>
+            <mat-option value="over">Over</mat-option>
+            <mat-option value="push">Push</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </li>
+      <li>
+        <mat-form-field>
+          <mat-label>Has backdrop</mat-label>
+          <mat-select #hasBackdrop>
+            <mat-option>Unset</mat-option>
+            <mat-option [value]="true">True</mat-option>
+            <mat-option [value]="false">False</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </li>
+    </ul>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+
+    <div class="rainbow-back">
+      <div class="gaming-options">
+        <ul class="horizontal">
+          @for (item of items; track $index) {
+            <li value="{{item.name}}">
+              <img src='{{item.icon}}' alt="none" class="icon-maker">
+              <p>{{item.name.toUpperCase()}}</p>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <main class="main">
+      <router-outlet />
+    </main>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>
+

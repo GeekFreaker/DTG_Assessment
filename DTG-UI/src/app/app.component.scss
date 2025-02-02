@@ -1,0 +1,259 @@
+@font-face {
+  font-family: InterFont;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&display=swap');
+}
+
+@font-face {
+  font-family: "Biennale";
+  src: url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.eot");
+  src: url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.svg#Biennale")format("svg");
+}
+
+/*==variables ==*/
+$font-weight: 500;
+$fadeColor: linear-gradient(90deg, rgb(1,88,184) 0%, rgba(8,162,209,1) 76%, rgba(7,161,209,1) 100%);
+$greenToYellowFade: linear-gradient(90deg, rgb(1,88,184) 0%, rgb(1,88,184) 32%, rgba(93,179,136,1) 49%, rgba(255,217,1,1) 100%);;
+$leftShift: 7%;
+$rightShift: 7%;
+$evenFontWeight: 700;
+
+* {
+  font-family: "Biennale";
+}
+
+.material-icons {
+  font-family: "Material Icons" !important;
+}
+
+.btn {
+  font-weight: $font-weight;
+  border-radius: 30px;
+  margin: 10px;
+  width: 100px;
+  padding: 20px 10px 20px 10px;
+  color: white;
+  font-weight: 900;
+  &:hover {
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+  }
+}
+
+.wrapper {
+  display:flex;
+  font-weight: $font-weight;
+  flex-wrap:wrap;
+  padding-left: 2%;
+}
+
+.top-left{
+  flex: 0 1 100%;
+  color: white;
+  font-weight: $evenFontWeight;
+}
+
+.bottom-left{
+  flex: 0 1 50%;
+  color: #f9d949;
+  font-weight: 7$evenFontWeight;
+}
+
+
+.example-container {
+  width: 100%;
+  height: 100%;
+}
+
+mat-toolbar {
+  background: rgb(1,88,184);
+  background: $fadeColor;
+  border-bottom-width: 5rem;
+  padding-bottom:40px;
+  height: 20vh;
+  padding-top:20px;
+  padding-left: $leftShift;
+  padding-right: $rightShift;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+.toolbar-bottom {
+  min-height: 10px;
+  background:
+    linear-gradient(
+      90deg, $fadeColor
+    )
+    left
+    bottom
+    white
+    no-repeat;
+}
+
+mat-icon {
+  color: white;
+  font-weight: 500;
+}
+
+
+.rainbow-back{
+  padding-top : 20px;
+  background: $greenToYellowFade;
+  width: 100%;
+  .gaming-options {
+  padding-left: 8%;
+  padding-right: 7.6%;
+  background : #121627;
+    ul.horizontal {
+    background : transparent;
+    list-style-type: none;
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-weight: 900;
+    margin-bottom: 0px;
+    padding:0;
+    margin:0;
+    li {
+      padding-left: 10.66px;
+      font-size: 11.85px;
+      display: flex;
+      justify-content: center;
+      padding-left: 10.66px;
+      align-items: center;
+      // min-height: 10%;
+      min-height: 50px;
+      padding: 5px;
+      width: 100%;
+      img {
+        display: inline-flex;
+        padding-left: 1px;
+        height: 22px;
+        width:  22px;
+      }
+
+      p {
+        display: inline-flex;
+        margin-left: 5px;
+        margin-top: 5px;
+        white-space: nowrap;
+        color: white;
+      }
+
+      &:hover {
+        p {
+          color: #f9d949;
+        }
+        img {
+          filter: brightness(0) saturate(100%) invert(98%) sepia(36%) saturate(5904%) hue-rotate(321deg) brightness(107%) contrast(95%);
+        }
+        color: #f9d949;
+        border-bottom: .25rem solid #f9d949;
+        transition: ease-in-out 0.1s;
+      }
+
+    }
+  }
+
+ }
+}
+
+
+
+mat-drawer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: fit-content;
+}
+
+
+
+:host {
+    --bright-blue: oklch(51.01% 0.274 263.83);
+    --electric-violet: oklch(53.18% 0.28 296.97);
+    --french-violet: oklch(47.66% 0.246 305.88);
+    --vivid-pink: oklch(69.02% 0.277 332.77);
+    --hot-red: oklch(61.42% 0.238 15.34);
+    --orange-red: oklch(63.32% 0.24 31.68);
+
+    --gray-900: oklch(19.37% 0.006 300.98);
+    --gray-700: oklch(36.98% 0.014 302.71);
+    --gray-400: oklch(70.9% 0.015 304.04);
+
+    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
+      180deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
+      90deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    --pill-accent: var(--bright-blue);
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-size: 3.125rem;
+    color: var(--gray-900);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+    margin: 0;
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+  }
+
+  p {
+    margin: 0;
+    color: var(--gray-700);
+  }
+
+  main {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: inherit;
+    position: relative;
+    background: rgb(41,45,166);
+    background: linear-gradient(180deg, rgba(41,45,166,1) 0%, rgba(13,74,178,1) 15%, rgba(5,132,199,1) 100%);
+  }
+
+
+  .align-end {
+    align-self: flex-end;
+    justify-items: flex-end;
+    flex: 1 1 auto;
+}
+
+
+  @media screen and (max-width: 650px) {
+
+  }
+
