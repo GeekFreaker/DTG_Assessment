@@ -1,4 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: fit-content; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+  font-family: "Inter";
+  src: url("https://db.onlinewebfonts.com/t/8c33c8e6d8e32a400946ef46e10d59a2.eot");
+  src: url("https://db.onlinewebfonts.com/t/8c33c8e6d8e32a400946ef46e10d59a2.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/8c33c8e6d8e32a400946ef46e10d59a2.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/8c33c8e6d8e32a400946ef46e10d59a2.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/8c33c8e6d8e32a400946ef46e10d59a2.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/8c33c8e6d8e32a400946ef46e10d59a2.svg#Inter")format("svg");
+}
+
+@font-face {
+  font-family: "Biennale";
+  src: url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.eot");
+  src: url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.svg#Biennale")format("svg");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("https://db.onlinewebfonts.com/t/9766863346bef0bd561ce3ffe885eba9.eot");
+  src: url("https://db.onlinewebfonts.com/t/9766863346bef0bd561ce3ffe885eba9.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/9766863346bef0bd561ce3ffe885eba9.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/9766863346bef0bd561ce3ffe885eba9.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/9766863346bef0bd561ce3ffe885eba9.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/9766863346bef0bd561ce3ffe885eba9.svg#Poppins")format("svg");
+}
+
+@font-face {
+  font-family: "Bebas";
+  src: url("https://db.onlinewebfonts.com/t/3e6392a709ec7ed6c24de0078e477a5e.eot");
+  src: url("https://db.onlinewebfonts.com/t/3e6392a709ec7ed6c24de0078e477a5e.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/3e6392a709ec7ed6c24de0078e477a5e.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/3e6392a709ec7ed6c24de0078e477a5e.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/3e6392a709ec7ed6c24de0078e477a5e.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/3e6392a709ec7ed6c24de0078e477a5e.svg#Bebas")format("svg");
+}

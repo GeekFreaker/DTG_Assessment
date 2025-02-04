@@ -1,46 +1,207 @@
-@font-face {
-  font-family: InterFont;
-  src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&display=swap');
-}
-
-@font-face {
-  font-family: "Biennale";
-  src: url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.eot");
-  src: url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/ab115b4a1db57541d7c9c9e39db76c56.svg#Biennale")format("svg");
-}
-
 /*==variables ==*/
+
+$spanBlue: #07a1d1;
+$bgDeepBlue: #0376c2;
+$buttonShadowBlue: #0370a7;
+
 $font-weight: 500;
-$fadeColor: linear-gradient(90deg, rgb(1,88,184) 0%, rgba(8,162,209,1) 76%, rgba(7,161,209,1) 100%);
-$greenToYellowFade: linear-gradient(90deg, rgb(1,88,184) 0%, rgb(1,88,184) 32%, rgba(93,179,136,1) 49%, rgba(255,217,1,1) 100%);;
 $leftShift: 7%;
 $rightShift: 7%;
 $evenFontWeight: 700;
+$defaultFontSize: 12px;
+$defaultColor: white;
 
+$fadeColor: linear-gradient(90deg, rgb(1,88,184) 0%, rgba(8,162,209,1) 76%, rgba(7,161,209,1) 100%);
+$greenToYellowFade: linear-gradient(90deg, rgb(1,88,184) 0%, rgb(1,88,184) 32%, rgba(93,179,136,1) 49%, rgba(255,217,1,1) 100%);;
+$blueToYellowFade: linear-gradient(142deg, rgba(7,159,208,1) 0%, rgba(93,179,136,1) 45%, rgba(255,217,1,1) 100%);
+$blueToYellowFade2: linear-gradient(142deg, rgb(1,88,184) 0%, rgba(8,162,209,1) 56%, rgba(93,179,136,1) 75%, rgba(255,217,1,1) 100%);
+$yellowtoBlueFade: linear-gradient(142deg,rgba(255,217,1,1) 0%, rgba(93,179,136,1) 65%,  rgba(7,159,208,1) 100%);
+$turnImageYellow: brightness(0) saturate(100%) invert(98%) sepia(36%) saturate(5904%) hue-rotate(321deg) brightness(107%) contrast(95%);
+$tranparentToBlack: linear-gradient(90deg, transparent 0%, rgba(8,162,209,1) 76%, black 100%);
+
+$backgroundFade: linear-gradient(180deg, rgba(41,45,166,1) 0%,  #068bc9 10%, #0d4e6c 25%, #0f334a 45%, rgba(13,74,178,1) 64%, #131728 73%, #0b6f94 100%);
+
+/*== mixins ==*/
+@mixin fade($angle, $first_color, $second_color, $third_color, $f,$s,$t) {
+  background: linear-gradient($angle, $first_color $f, $second_color $s, $third_color $t);
+}
+
+@mixin setFont($family: "Biennele", $weight: 500, $size: $defaultFontSize, $color : $defaultColor){
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin setBorder($a, $b, $c, $d, $e){
+  border-top: $a;
+  border-left: $b;
+  border-right: $c;
+  border-bottom: $d;
+}
+
+h1,h2,h3,h4,h5 {
+  color: $defaultColor;
+}
+
+/*== fonts ==*/
 * {
   font-family: "Biennale";
 }
 
 .material-icons {
-  font-family: "Material Icons" !important;
+  font-family: "Material Icons";
 }
 
 .btn {
-  font-weight: $font-weight;
+  @include setFont("Poppins", $font-weight,900);
   border-radius: 30px;
   margin: 10px;
   width: 100px;
-  padding: 20px 10px 20px 10px;
+  padding: 10.9px 7.56px 7.25px 7.4px;
   color: white;
-  font-weight: 900;
+  text-transform: uppercase;
+
+  &-floater {
+    background-color: $spanBlue;
+    width: 120px;
+    position: absolute;
+    margin-top: -20px;
+  }
+  &-floater:after {
+    content: '$1000 0000';
+  }
+
+  &-starry {
+    margin-top: -61px;
+    position: absolute;
+    border-radius: 0px 10px 0px 50px;
+    width: 281px;
+    @include setFont("Inter", 400 , 15px, white );
+    align-items: center;
+    text-align: center;
+
+    mat-icon{
+      font-size: 17px;
+      padding: 9px;
+      margin: 0;
+      margin-right: 10px
+    }
+
+    &.starry-0 {
+      margin-left: 171px !important;
+      background: linear-gradient(90deg, #179ee5 0%, #08a2d1 100% );
+    }
+    &.starry-1 {
+      color: black;
+      padding-top: 5px !important;
+      margin-left: 220px !important;
+      background-color: white;
+      mat-icon {
+        color: black;
+      }
+    }
+  }
+
+  &-prim {
+    @include fade(180deg, #0054b7, #026cbf, #08a2d1, 0%, 50%,100% );
+    padding: 20px;
+    width: 60%;
+  }
+
+  &-gray {
+    background: gray;
+    padding: 20px;
+    width: 60%;
+    flex-wrap:wrap;
+  }
+
+  &-yellow {
+    background: #ffd800;
+    color: black;
+    width: 231px;
+    font-weight: 900;
+    text-align: center;
+    border: 1px solid transparent;
+    font-size: 15px;
+
+    &-angle {
+      font-family: "Poppins";
+      background: #ffd800;
+      border-radius: 20px 20px 20px;
+      padding-left: 20px;
+      border: 1px solid transparent;
+      font-weight: bolder;
+
+      &.left {
+        margin-left: $leftShift+22%;
+        background: #ffd800;
+        border-radius: 20px 20px 20px;
+      }
+
+      &.right {
+        margin-right: $leftShift;
+      }
+    }
+
+    &-text {
+      width: 50%;
+      border-radius: 20px 20px 20px;
+      font-weight: bold;
+      font-family: "Poppins";
+      border: 1px solid transparent;
+      padding-left: 40px;
+
+      &#basic-addon1 {
+        color: white;
+        background-color: $spanBlue;
+      }
+    }
+
+    &:hover {
+      color: transparent;
+      font-weight: bolder;
+      background-color: white;
+    }
+  }
+
   &:hover {
     color: black;
     font-weight: bolder;
     background-color: white;
+  }
+
+  &-classic {
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 12px;
+    background: $spanBlue;
+    text-align: center;
+    align-items: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+    width: 11.2%;
+    z-index: 2;
+
+
+    .divider {
+      content: '|';
+      color: white;
+      text-shadow: 1px solid whitesmoke;
+    }
+
+    &:hover {
+      background: $blueToYellowFade2;
+      box-shadow: 0 0 30px black;
+      color: white;
+      padding-top: -10px;
+      white-space: nowrap;
+      transform: translate(0, 2px);
+      box-shadow: 0px 7px 0px 0px $buttonShadowBlue;
+      -webkit-box-shadow: 0px 7px 0px 0px $buttonShadowBlue;
+      -moz-box-shadow: 0px 7px 0px 0px rgba(0,0,0,0.66)$buttonShadowBlue;
+    }
   }
 }
 
@@ -49,32 +210,86 @@ $evenFontWeight: 700;
   font-weight: $font-weight;
   flex-wrap:wrap;
   padding-left: 2%;
+
+  .top-left{
+    flex: 0 1 100%;
+    color: white;
+  }
+
+  .bottom-left{
+    flex: 0 1 50%;
+    color: #f9d949;
+  }
 }
 
-.top-left{
-  flex: 0 1 100%;
+.plus {
   color: white;
-  font-weight: $evenFontWeight;
-}
-
-.bottom-left{
-  flex: 0 1 50%;
-  color: #f9d949;
-  font-weight: 7$evenFontWeight;
+  text-decoration: underline;
+  text-align: center;
 }
 
 
-.example-container {
+.drawer-container {
   width: 100%;
   height: 100%;
+}
+
+.headerText {
+  font-family: "Inter";
+  font-size: 58px;
+  font-weight: 700;
+  width: 120%;
+  color: white;
+
+  &-last {
+    font-size: 38px;
+    color: white;
+    font-family: "Bebas";
+  }
+}
+
+.mini {
+  background: $blueToYellowFade;
+  width: 60px;
+  min-height: 6px;
+  margin-bottom: 20px;
+
+  &-text {
+    text-align-last: center;
+    h1{
+      font-family: "Inter";
+    }
+  }
+}
+
+.faq-buttons {
+  padding-left: 60px;
+  padding-right: 60px;
+  list-style-type: none;
+  display: inline-flex;
+  width: 100%;
+  li{
+    width: 20%;
+    padding-left: 10px;
+    button {
+    border: 2px solid white;
+    }
+
+    button:hover{
+      background: linear-gradient(145deg, rgb(1,88,184) 0%, rgb(1,88,184) 40%, rgba(93,179,136,1) 79%, rgba(255,217,1,1) 100%);
+      color: white;
+      transform: translate(0, 2px);
+      border: 0px solid transparent;
+    }
+  }
 }
 
 mat-toolbar {
   background: rgb(1,88,184);
   background: $fadeColor;
   border-bottom-width: 5rem;
-  padding-bottom:40px;
-  height: 20vh;
+  padding-bottom:20px;
+  height: 10vh;
   padding-top:20px;
   padding-left: $leftShift;
   padding-right: $rightShift;
@@ -83,7 +298,6 @@ mat-toolbar {
 .example-spacer {
   flex: 1 1 auto;
 }
-
 
 .toolbar-bottom {
   min-height: 10px;
@@ -102,72 +316,407 @@ mat-icon {
   font-weight: 500;
 }
 
+.card {
+  border: none;
+  color: white;
+  background: linear-gradient(transparent 0%, #087fa3 50%, #0c5c75 100%);
+  padding: 2px;
+  margin: 2px;
 
-.rainbow-back{
-  padding-top : 20px;
-  background: $greenToYellowFade;
-  width: 100%;
-  .gaming-options {
-  padding-left: 8%;
-  padding-right: 7.6%;
-  background : #121627;
-    ul.horizontal {
-    background : transparent;
-    list-style-type: none;
-    display: inline-flex;
-    width: 100%;
-    text-align: center;
-    align-items: center;
-    color: white;
-    font-weight: 900;
-    margin-bottom: 0px;
-    padding:0;
-    margin:0;
-    li {
-      padding-left: 10.66px;
-      font-size: 11.85px;
-      display: flex;
-      justify-content: center;
-      padding-left: 10.66px;
-      align-items: center;
-      // min-height: 10%;
-      min-height: 50px;
-      padding: 5px;
-      width: 100%;
-      img {
-        display: inline-flex;
-        padding-left: 1px;
-        height: 22px;
-        width:  22px;
+  &-title {
+    @include setFont("Poppins", 200, "", );
+  }
+
+  &-like {
+    margin-top: -10px;
+    margin-left: 78%;
+    position: absolute;
+  }
+
+  &-text {
+    height: 100px;
+    padding-top:20px;
+  }
+
+  &-body {
+    @include fade(0deg, rgba(0,0,0,0.75), #0c5c75, rgba(0,0,0,0.05), 0%, 50%, 100%);
+    border-radius: 10px;
+    width: 280px;
+
+
+    img {
+     width: 30px;
+     height: 30px;
+     margin: 5px;
+     position: absolute;
+     font-family: "Material-Icons";
+     border-radius: 80px;
+     margin-top: -30px;
+     padding: 5px;
+    }
+
+    .circle {
+      &-red {
+        background: red;
+        margin-left: 220px;
       }
 
-      p {
-        display: inline-flex;
-        margin-left: 5px;
-        margin-top: 5px;
-        white-space: nowrap;
-        color: white;
+      &-orange {
+        background: orange;
+        margin-left: 180px;
       }
+    }
 
-      &:hover {
-        p {
-          color: #f9d949;
-        }
-        img {
-          filter: brightness(0) saturate(100%) invert(98%) sepia(36%) saturate(5904%) hue-rotate(321deg) brightness(107%) contrast(95%);
-        }
-        color: #f9d949;
-        border-bottom: .25rem solid #f9d949;
-        transition: ease-in-out 0.1s;
-      }
+  }
 
+  &:hover {
+    margin: 1px solid #ffd800;
+    filter: drop-shadow(0px 0px 0px black);
+    border: 4px solid #ffd800;
+    transition: ease-in-out 0.12s;
+
+    &-title {
+      font-weight: 900;
+    }
+    button {
+      background: #ffd800;
+      color: black;
+      width: 220px;
+      margin-top: 20px;
+      padding: 20px;
+      transition: ease-in-out .12s;
+      transform: translate(0, 4px);
+    }
+
+    button:after {
+      content: '▷  PLAY';
+    }
+  }
+}
+
+hr{
+  color: white;
+}
+
+.pforf {
+  margin-top: 25px;
+  position: absolute;
+  @include setFont("Poppins", 400, "", #ffd800);
+}
+
+.cards {
+  background: $blueToYellowFade;
+  width: 50%;
+  height: 150px;
+  padding: 25px;
+  border-radius: 10px;
+
+  img {
+    width: 160px;
+    height: 160px;
+    margin-top: -30px;
+    margin-left: -20px;
+  }
+
+  &-title {
+    position: absolute;
+    left: 27%;
+    top: 25%;
+  }
+
+  &-body {
+    position: absolute;
+    left: 27%;
+    top: 63%;
+  }
+
+  h1 {
+    position: absolute;
+    left: 27%;
+    top: 36%;
+  }
+  span {
+    position: absolute;
+    left:42.95%;
+    border-radius: 0 10px 0 23px;
+    top:0;
+    width: 80px;
+    border: 5px;
+    background: white;
+    font-family: "Poppins";
+    padding-bottom: 3px;
+    color:#0054b7;
+    mat-icon {
+      color: #0054b7;
+      font-size: 18px;
+      padding-top:9px;
+      padding-left:7px;
+    }
+  }
+}
+
+::ng-deep mat-drawer {
+  height: 25%;
+}
+
+.draws {
+  li {
+    font-family: "Poppins";
+    padding: 25px;
+    /* margin: 25px;*/
+    &:hover {
+     background: #3cd9cd;
+     img {
+      filter: $turnImageYellow;
+     }
     }
   }
 
- }
+}
+
+::ng-deep mat-drawer#innerDrawer {
+  background: $blueToYellowFade;
+  .mat-drawer-inner-container {
+    li {
+      background: transparent;
+      padding: 25px;
+      border-bottom: none;
+      @include setFont("Poppins",500,23px,white);
+    }
+  }
+}
+
+.accordion {
+&-item {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+&-header {
+  background-color: $blueToYellowFade2;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+&-body {
+  @include setFont("Inter", 400, 15px, white);
+}
+
+&-button{
+  @include setFont("Inter", 400, 20px, white);
+  background: $blueToYellowFade2;
+  border-radius: 5px;
+  padding: 27px;
+  &[aria-expanded="false"] {
+   @include fade(180deg, #0054b7, #026cbf, #08a2d1, 0%, 50%,100% )
+  }
+  &:not(.collapsed)::after {
+    background-size: 20px;
+    background-blend-mode: white;
+  }
+}
+
 }
 
 
+
+.hero {
+  &-cloud {
+    position: absolute;
+    margin-top: -185px;
+    margin-left: -225px;
+    z-index: -1;
+ }
+
+
+ &-container {
+    padding-top: 60px;
+    padding-left: 20px;
+    margin-bottom: -130px;
+ }
+  &-spacer {
+    z-index: 1;
+    margin:0;
+    padding: 0;
+    margin-top: -150px;
+    padding-left:91px;
+ }
+}
+
+.shero {
+  background: url('../../public/assets/Dream-Casino/Assessment Assets/BANNERS/BANNER 1.png') no-repeat;
+  background-size: 1088px;
+  height: 145%;
+  width: 100%;
+  z-index: 2;
+  border-radius: 15px;
+ }
+
+  .fivers {
+    border-radius: 10%;
+    margin-right: 3%;
+    width: 50%;
+    min-height: 40px;
+    background-size: 1088px;
+    z-index: 2;
+    border-radius: 15px;
+
+    &-0 {
+      img {
+        width: 106%;
+        height: 119%;
+        margin-top: 16%;
+      }
+      background-color: white;
+      color: black;
+    }
+
+    &-1 {
+      img{
+        width: 106%;
+        height: 110%;
+      }
+      width: 55%;
+      margin-right: 3%;
+      @include fade(180deg, #0054b7, #026cbf, #08a2d1, 0%, 50%,100% )
+    }
+  }
+
+ .h {
+  z-index: 2;
+  min-width: 310px;
+  &.seven {
+  @include setFont("Inter", 900, 36px, white);
+  width: 100%;
+  &-0 {
+    color: black;
+  }
+ }
+
+ &.six {
+  @include setFont("Bebas", 500, 18px, white);
+  &-0 {
+    color: black;
+    min-width: 310px;
+  }
+ }
+}
+
+.second-cloud {
+   justify-content: end;
+   position:absolute;
+   right:0;
+   z-index: 1;
+}
+
+.third-cloud {
+  justify-content: start !important;
+  position:absolute;
+  left:0;
+  z-index: 1;
+}
+
+.heroes {
+  margin-left: 65%;
+  margin-top: -25%;
+  width: 605px;
+  height: 462px;
+}
+
+.zi-two {
+  z-index: 2;
+}
+
+.hero-text {
+  color: white;
+  position: absolute;
+  margin-left: -25%;
+  p {
+    font-size: 50px;
+    margin-top: -30%;
+    font-weight: 900;
+  }
+}
+
+.centralise {
+  padding-left: 6%;
+  padding-left: 6%;
+}
+
+.heading {
+  color: white;
+  flex-direction: row;
+  font-family: "Poppins";
+  font-weight: 700;
+
+  &-right {
+
+  }
+}
+
+.rainbow-back {
+  padding-top : 20px;
+  background: $greenToYellowFade;
+  width: 100%;
+
+  .gaming-options {
+    padding-left: 5.8%;
+    padding-right: 7.6%;
+    background : #121627;
+
+      ul.horizontal {
+      background : transparent;
+      list-style-type: none;
+      display: inline-flex;
+      width: 100%;
+      text-align: center;
+      align-items: center;
+      color: white;
+      font-weight: $evenFontWeight+200;
+      margin-bottom: 0px;
+      padding:0;
+      margin:0;
+
+      li {
+        font-size: 11.85px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50px;
+        padding: 5px;
+        width: 100%;
+
+        img {
+          display: inline-flex;
+          height: 22px;
+          width:  22px;
+        }
+
+        p {
+          @include setFont("Poppins", 400, "", "white");
+          margin: 0;
+          display: inline-flex;
+          margin-left: 5px;
+          margin-top: 5px;
+          white-space: nowrap;
+          color: white;
+        }
+
+        &:hover {
+          p {
+            color: #f9d949;
+          }
+          img {
+            filter: $turnImageYellow;
+          }
+          color: #f9d949;
+          border-bottom: .25rem solid #f9d949;
+          transition: ease-in-out 0.1s;
+        }
+      }
+    }
+  }
+}
 
 mat-drawer-content {
   display: flex;
@@ -176,84 +725,71 @@ mat-drawer-content {
   min-height: fit-content;
 }
 
-
-
-:host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
+main {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 2rem;
     box-sizing: inherit;
     position: relative;
     background: rgb(41,45,166);
-    background: linear-gradient(180deg, rgba(41,45,166,1) 0%, rgba(13,74,178,1) 15%, rgba(5,132,199,1) 100%);
-  }
+    background: $backgroundFade;
+    font-family: "Poppins";
 
+    .bd-rad {
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      width: 88%;
+    }
 
-  .align-end {
-    align-self: flex-end;
-    justify-items: flex-end;
-    flex: 1 1 auto;
+    .align-end {
+      align-self: flex-end;
+      justify-items: flex-end;
+      flex: 1 1 auto;
+    }
+
+    .spangame {
+      background: $bgDeepBlue;
+      color: white;
+      border: none;
+    }
+
+    .game {
+      border: none;
+      border-top-right-radius: 5px !important;
+      border-bottom-right-radius: 5px !important;
+      width: 28em;
+      font-family: "Poppins";
+      background: $bgDeepBlue;
+      color: white;
+    }
+
+    .search-icon {
+      margin:6px;
+      width:25px;
+      height:25px;
+      color: $bgDeepBlue;
+      content: url('/assets/sliders.svg');
+    }
+
+    .search-select {
+      border: 1px solid transparent;
+      width: 29em;
+      font-family: "Poppins";
+      font-weight: 900;
+      caret-color: $bgDeepBlue;
+    }
 }
 
 
-  @media screen and (max-width: 650px) {
+::-webkit-input-placeholder {
+    color: white
+}
 
-  }
+@media screen and (max-width: 650px) {
+
+}
 

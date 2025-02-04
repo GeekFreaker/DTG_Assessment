@@ -1,10 +1,11 @@
 
 <mat-toolbar class="d-flex">
-  <button mat-icon-button class="example-icon" (click)="drawer.toggle()"aria-label="Example icon-button with menu icon">
+
+  <button mat-icon-button class="material-icon" (click)="drawer.toggle();;Innerdrawer.close();">
     <mat-icon>menu</mat-icon>
   </button>
 
-  <button mat-icon-button class="example-icon" width="50" height="50" aria-label="Example icon-button with menu icon">
+  <button mat-icon-button class="material-icon" width="80" height="80">
     <mat-icon>search</mat-icon>
   </button>
 
@@ -14,10 +15,10 @@
   </div>
 
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="material-icon">
       <mat-icon>search</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="material-icon">
       <mat-icon>card_giftcard</mat-icon>
     </button>
     <button class="btn" aria-label="Example icon-button with heart icon">
@@ -26,41 +27,50 @@
     <button class="btn" aria-label="Example icon-button with share icon">
      LOGIN
     </button>
+
 </mat-toolbar>
 
-<mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+<mat-drawer-container class="drawer-container" [hasBackdrop]="false">
 
-  <mat-drawer #drawer [mode]="mode.value">
-    <p>I'm a drawer</p>
-    <ul>
-      <li>
-        <mat-label>Sidenav mode</mat-label>
+  <mat-drawer #drawer [mode]="'over'">
+    <ul class="draws list-group list-group-flush d-flex justify-content-between">
+      <li class="list-group-item">
+        <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/MY-ACCOUNT.svg" alt="">
+        WELCOME, GUEST</li>
+      <li class="list-group-item"><button class="btn btn-prim">SIGN UP</button></li>
+      <li class="list-group-item"><button class="btn btn-gray">CHAT TO US</button></li>
+      <li class="list-group-item">
+        <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/MY-ACCOUNT.svg" alt="">
+        My Account</li>
+      <li class="list-group-item" (click)="Innerdrawer.toggle()">
+        <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/GAMES.svg" alt="">
+        GAMES
       </li>
-      <li>
-        <mat-form-field>
-          <mat-select #mode value="side">
-            <mat-option value="side">Side</mat-option>
-            <mat-option value="over">Over</mat-option>
-            <mat-option value="push">Push</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </li>
-      <li>
-        <mat-form-field>
-          <mat-label>Has backdrop</mat-label>
-          <mat-select #hasBackdrop>
-            <mat-option>Unset</mat-option>
-            <mat-option [value]="true">True</mat-option>
-            <mat-option [value]="false">False</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </li>
+      <li class="list-group-item">
+        <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/PROMOTIONS.svg" alt="">
+        PROMOTIONS</li>
+      <li class="list-group-item">
+        <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/LOYALTY.svg" alt="">
+        LOYATY</li>
+        <li></li>
+        <li></li>
+        <li class="list-group-item">
+          <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/BANKING.svg" alt="">
+          BANKING</li>
+        <li class="list-group-item">
+          <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/ABOUT.svg" alt="">
+          ABOUT</li>
+        <li class="list-group-item">
+          <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/SUPPORTsvg" alt="">
+          SUPPORT</li>
+        <li class="list-group-item">
+          <img src="assets/Dream-Casino/Assessment Assets/ICONS/MENU ICONS/SUPPORTsvg" alt="">
+          LANGUAGE</li>
     </ul>
-
   </mat-drawer>
 
-  <mat-drawer-content>
 
+  <mat-drawer-content>
 
     <div class="rainbow-back">
       <div class="gaming-options">
@@ -75,9 +85,308 @@
       </div>
     </div>
 
-    <main class="main">
-      <router-outlet />
-    </main>
+    <mat-drawer-container class="example-container" [hasBackdrop]="false">
+      <mat-drawer id="innerDrawer" style="margin-left:28.2%" #Innerdrawer [mode]="'over'">
+
+        <ul class="list-group list-group-flush d-flex justify-content-between">
+
+          @for (item of items; track $index) {
+          <li class="list-group-item">
+            <img style="background-color: transparent;" src="{{item.icon}}" class="icon-maker ps-1" alt="">
+            {{item.name.toUpperCase()}}</li>
+          }
+          </ul>
+      </mat-drawer>
+        <mat-drawer-content>
+
+          <main class="main" (click)="drawer.close();Innerdrawer.close()">
+            <div class="col-xxl-8 justify-content-center">
+                <div class="hero-container row flex-lg-row-reverse align-items-center">
+                  <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="assets/Dream-Casino/Assessment Assets/CHARACTERS/heroes.svg"
+                        class="d-block mx-lg-auto img-fluid"
+                        alt="Bootstrap Themes"
+                        width="850"
+                        height="650"
+                        loading="lazy">
+                  </div>
+                  <div class="hero-spacer col-lg-6">
+                    <img class="hero-cloud" src="assets/Dream-Casino/Assessment Assets/CHARACTERS/cloud.svg" alt="">
+                    <div class="mini"></div>
+                    <h1 class="headerText display-5 lh-1 mb-3">100% UP TO</h1>
+                    <h1 class="headerText display-5 lh-1 mb-3">€800 + 375 SPINS</h1>
+                    <h1 class="headerText-last display-5 lh-1 mb-3 pb-1 pt-4">ON BOOK OF DEAD</h1>
+                    <button class="btn btn-yellow"> SIGN UP</button>
+                  </div>
+                </div>
+
+
+                <div class="d-flex">
+                  <div class="input-group mb-3">
+                    <span class="btn-yellow-angle left input-group-text" id="basic-addon1">Offer 1</span>
+                    <span class="btn-yellow-text input-group-text" id="basic-addon1">100% UP TO €800 + 375 SPINS</span>
+                  </div>
+                  <div class="input-group mb-3" style="margin-left: -40px;">
+                    <span class="btn-yellow-angle input-group-text" id="basic-addon3">Offer 1</span>
+                    <span class="btn-yellow-text input-group-text" id="basic-addon4">100% UP TO €800 + 375 SPINS</span>
+                  </div>
+                </div>
+
+
+                <div class="d-flex justify-content-center mt-4 pb-5">
+                  <h5 class="plus">18+, Please Play Responsibly, Full Terms Apply, GamblingTherapy.org</h5>
+                </div>
+                <div>
+
+
+                <div class="d-flex justify-content-center">
+                  <nav class="mt-5 ps-2 pe-2 bd-rad navbar navbar-light bg-light zi-two">
+                    <form class="form-inline">
+                      <div class="input-group flex-nowrap">
+                        <span class="spangame input-group-text" id="addon-wrapping"><mat-icon>search</mat-icon></span>
+                        <input type="text" class="game form-control" placeholder="Find your game" aria-label="Username" aria-describedby="addon-wrapping"/>
+                        <div class="d-flex ps-4" style="flex-direction: row;gap:20px">
+                          <mat-icon class="search-icon"></mat-icon>
+                          <select class="search-select form-select" aria-label="Default select example">
+                            <option disabled selected>All game providers</option>
+                            <option value="1">...</option>
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                  </nav>
+                </div>
+
+
+                <div class="d-flex justify-content-center">
+                  @for (item of swap(); track $index) {
+                    @if( item.name !== "scratch cards" &&  item.name !== "free play" &&
+                        item.name !== "red tiger"     && item.name !== "game provider") {
+                      <button class="btn btn-classic d-flex" type="submit">
+                        <img src="{{item.icon}}" alt="" class="icon-maker ps-1"/>
+                        <div class="divider p-1 me-1">|</div>
+                        {{item.name}}
+                      </button>
+                    }
+                  }
+                </div>
+
+            </div>
+
+
+            <div class="second-cloud">
+                <img src="assets/Dream-Casino/Assessment Assets/CHARACTERS/cloud2.svg" alt=""/>
+            </div>
+
+            <div class="third-cloud">
+                <img src="assets/Dream-Casino/Assessment Assets/CHARACTERS/cloud3.svg" alt=""/>
+            </div>
+
+            <!-- four -->
+            <div class="d-flex mt-3 pt-5 justify-content-between">
+                <div class="heading centralise zi-two">
+                  <h5>Popular</h5>
+                </div>
+                <div class="heading me-5 d-flex zi-two">
+                  <h5>View All</h5>
+                </div>
+            </div>
+            <div class="centralise d-flex" style="background: none;width: 500%;display: inline-block">
+                @for (item of games; track $index) {
+                  <div class="card zi-two">
+                    <div class="card-body">
+                      <button class="btn btn-floater"></button>
+                      <img class="circle-red" src="assets/Dream-Casino/Assessment Assets/ICONS/CATEGORY ICONS/POPULAR.svg" alt="">
+                      <img class="circle-orange" src="assets/star.svg"  alt="" >
+                      <p class="card-text"></p>
+                      <h5 class="card-title">Game Name</h5>
+                      <mat-icon class="card-like" width="25" height="25">favorite</mat-icon>
+                    </div>
+                  </div>
+                }
+            </div>
+
+            <hr class="centralise m-5 p-2"/>
+
+            <!-- four -->
+            <div class="d-flex mt-3 pt-5 justify-content-between">
+              <div class="heading centralise zi-two">
+                <h5>Today in Dream Casino</h5>
+              </div>
+          </div>
+            <div class="centralise">
+              <div>
+                <div id="carouselExampleIndicators" class="carousel slide">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="cards">
+                        <img src="assets/malibu.svg" width="50" height="50" alt="">
+                        <div class="cards-title">John Doe</div>
+                        <h1>$1000 000</h1>
+                        <div class="cards-body">Win of the day</div>
+                        <span><mat-icon>star</mat-icon> NEW</span>
+                      </div>
+
+                      <div>
+
+                    </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+              <div>
+
+              </div>
+            </div>
+
+            <!--five-->
+            <div class="centralise d-flex mt-5">
+                <div class="container d-flex justify-content-between col-xxl-8 px-4 py-5 zi-two">
+                @for (item of fives; track $index) {
+                  <div class="fivers fivers-{{$index}} row flex-lg-row-reverse align-items-center">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                      <img src="{{item.src}}" alt="">
+                    </div>
+                    <div class="col-lg-6 mt-2 ps-5">
+                      <button type="button" class="btn btn-starry starry-{{$index}} ms-1 btn-lg px-4 me-md-2">
+                        <mat-icon>star</mat-icon>
+                        {{item.small}}
+                      </button>
+                      <h1 class="h seven seven-{{$index}} display-5 fw-bold lh-1 mb-3">{{item.text}}</h1>
+                      <h5 class="h six six-{{$index}} display-5 fw-bold pt-2 lh-1 mb-3">on book of dead</h5>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="button" class="btn ms-1 btn-yellow btn-lg px-4 me-md-2">More</button>
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <!-- six -->
+            <div>
+
+            </div>
+
+            <!-- Seven -->
+            <div class="centralise d-flex mt-5">
+              <div class="container col-xxl-8 px-4 py-5 zi-two">
+                <div class="shero row flex-lg-row-reverse align-items-center g-5 py-5">
+                  <div class="col-10 col-sm-8 col-lg-6">
+                  </div>
+                  <div class="col-lg-6 mt-2 ps-5">
+                    <h1 class="h seven display-5 fw-bold lh-1 mb-3">Get your latest offers</h1>
+                    <h5 class="h six display-5 fw-bold pt-2 lh-1 mb-3">on book of dead</h5>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                      <button type="button" class="btn ms-1 btn-yellow btn-lg px-4 me-md-2">More</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!--eight-->
+            <div class="d-flex justify-content-center p-5 row align-items-center">
+                <div class="mini"></div>
+                <div class="mini-text">
+                  <h5>Know more</h5>
+                  <h1>Frequenty Asked <br/>Questions!</h1>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <ul class="centralise faq-buttons">
+              @for (item of buttons; track $index) {
+                <li>
+                  <button type="button" class="btn btn-outline-primary" style="width: 100%">
+                    {{item.toUpperCase()}}
+                  </button>
+                </li>
+              }
+            </ul>
+            </div>
+
+
+            <!-- eight-->
+            <div class="upperAccord centralise d-flex mt-5 me-5">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    There’s bonus money in my JackPot Lounge account, but when I try to play a game, I get a
+                    message saying I have insufficient funds. What’s this about?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    There`s bonus money in my JackPot Lounge account, but when I try to play a game, I get a
+                    message saying I have insufficient funds. What`s this about?
+                    The promotion from which you took your bonus offer determines how the bonus money can be used within the casino. Some bonus money may only be used on certain games, like
+                    slots or scratch cards. If you have any questions regarding this, please get in touch with our Live Chat team who will be able to assist you and pin point which games the bonus is
+                    applicable too.</div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    My withdrawal is still pending – why?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum pariatur adipisci alias neque? Repudiandae error ipsam corporis quis, quas numquam voluptates ipsum quia vitae animi, asperiores, labore facilis beatae.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Help! I forgot my password.
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, nam ut. Laborum explicabo, cupiditate similique, harum illo fugiat alias quas quibusdam sed blanditiis, corrupti repellat dicta magni. <br>Labore, error eveniet!<br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quia blanditiis excepturi omnis neque accusantium, voluptatum esse eum aperiam nisi officia recusandae hic? Minima adipisci aliquam unde non quis enim.
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+            <!-- nine -->
+            <div class="d-flex justify-content-center p-5 row align-items-center">
+              <div class="mini"></div>
+              <div class="mini-text">
+                <h5>Jackpot Totals</h5>
+                <h1>Lorem Ipsum Dolor</h1>
+              </div>
+          </div>
+          </div>
+
+          <router-outlet />
+
+            <!-- footer -->
+          </main>
+        </mat-drawer-content>
+    </mat-drawer-container>
 
   </mat-drawer-content>
 
